@@ -4,5 +4,5 @@ import './index.css';
 import Hello from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Hello />, document.getElementById('root'));
+ReactDOM.render(<Hello name="Tahara"/>, document.getElementById('root'));
 registerServiceWorker();
