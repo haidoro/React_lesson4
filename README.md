@@ -94,6 +94,16 @@ const Hello = (props) => {
   )
 }
 ```
+
+#### propTypesを使った型チェック
+旧バージョンからやり方が変更になっているの注意
+```
+import PropTypes from 'prop-types';
+Hello.propTypes = {
+  name: PropTypes.string
+}
+```
+
 #### state
 ```
 import React, { Component } from 'react';
