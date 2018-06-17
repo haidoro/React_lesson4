@@ -50,5 +50,62 @@ packege.json
 ```
 
 ## 解説
-Classコンポーネントとfanctionコンポーネントの違いはstateを持てるかどうかということです。Classコンポーネントがstateを保持することができます。
-functionコンポーネントはstateを持たないシンプルなコンポーネントを作成するときに使うと良いです。
+## 独自boilerplate作成
+### Classコンポーネントとfanctionalコンポーネント 
+Classコンポーネントとfanctionalコンポーネントの違いはstateを持てるかどうかということです。Classコンポーネントがstateを保持することができます。
+functionalコンポーネントはstateを持たないシンプルなコンポーネントを作成するときに使うと良いです。
+
+#### functionalコンポーネントの例
+```
+import React from 'react';
+
+const Hello = () => {
+  return(
+    <div>
+      <h1>Hello!</h1>
+      <p>functionalコンポーネントを作成した</p>
+    </div>
+  )
+}
+```
+
+#### Classコンポーネントの例
+```
+import React, { Component } from 'react';
+
+class App extends Component {
+  render() {   
+      <h1>Hello!</h1>
+      <p>Classコンポーネントを作成した</p>
+  }
+}
+```
+
+#### props
+```
+import React from 'react';
+
+const Hello = (props) => {
+  return(
+    <div>
+      <h1>Hello!{props.name}</h1>
+      <p>functionalコンポーネントを作成した</p>
+    </div>
+  )
+}
+```
+#### state
+```
+import React, { Component } from 'react';
+
+class App extends Component {
+    constructor(props){
+		super(props)
+		this.state = {name:"Haidoro"}
+	}
+  render() {   
+      <h1>Hello!{this.state.name}</h1>
+      <p>functionalコンポーネントを作成した</p>
+  }
+}
+```
