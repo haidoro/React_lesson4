@@ -119,3 +119,34 @@ class App extends Component {
   }
 }
 ```
+
+## React-Bootstrapの導入
+
+Bootstrapの導入はcreate-react-app導入の際にできるReadmeを読めば手順が書かれています。
+
+Bootstrapの追加手順
+
+1. npmを使う方法  
+npmからReact BootstrapとBootstrapをインストールします。
+```
+npm install --save react-bootstrap bootstrap@3
+```
+2. yarnを使う方法  
+```
+yarn add react-bootstrap bootstrap@3
+```
+
+src/index.jsファイルの先頭に下記をインポートする。
+```
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+```
+src/App.jsファイルに下記をインポートする：
+```
+import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+```
+これでBootstrapが使えるようになります。
+なお、ReactでのBootstrapの使い方ドキュメントは以下を参考にします。なかなかGoodなものです。
+
+[React-Bootstrap ドキュメント](https://react-bootstrap.github.io/getting-started/introduction)
+

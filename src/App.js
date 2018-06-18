@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import PropTypes from 'prop-types';
+import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 
 const Hello = (props) => {
   return(
@@ -27,12 +28,15 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1>Hello!{this.state.name}</h1>
-          <p>functionalコンポーネントを作成した</p>
+          <p>Classコンポーネントを作成した</p>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Hello name="Tahara"/>
+        <Button bsStyle="primary">Primary</Button>
+        <Button bsStyle="danger">Danger</Button>
+        <p>React-Bootstrapを使ってボタンを作成した。</p>
       </div>
     );
   }
