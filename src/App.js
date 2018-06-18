@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import PropTypes from 'prop-types';
 import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+import FormExample from './Form.js';
 
 const Hello = (props) => {
   return(
@@ -37,6 +38,9 @@ class App extends Component {
         <Button bsStyle="primary">Primary</Button>
         <Button bsStyle="danger">Danger</Button>
         <p>React-Bootstrapを使ってボタンを作成した。</p>
+        <div className="myForm">
+              <FormExample />
+        </div>
       </div>
     );
   }

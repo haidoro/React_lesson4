@@ -16,6 +16,10 @@
 .App-intro {
   font-size: large; }
 
+.myForm {
+  width: 50%;
+  margin: auto; }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg); }

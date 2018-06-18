@@ -150,3 +150,80 @@ import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 
 [React-Bootstrap ドキュメント](https://react-bootstrap.github.io/getting-started/introduction)
 
+### ボタンの追加
+
+import文に以下を追加
+```
+import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+```
+ボタンを追加したい場所に以下挿入
+```
+<Button bsStyle="primary">Primary</Button>
+<Button bsStyle="danger">Danger</Button>
+```
+
+### コンポーネントを別ファイルに用意してそれをimport
+
+Form.jsファイルを用意してフォームを作成。
+[React-Bootstrap](https://react-bootstrap.github.io/components/alerts/)のComponentsのFormsを参考にして記述。（以下コード）
+import文に`import { FormGroup, FormControl, ControlLabel,HelpBlock } from 'react-bootstrap';`を記述しないとエラーになるので注意。 
+import文に必要なものは React-Bootstrapのドキュメントでそれぞれのパーツの見出し部分にグレーの色で記述されているのでそれを使う。  
+![import文に必要な記述](images/rb1.png)
+
+また、最後の`render(<FormExample />);`はApp.jsで使用するのでこのファイルでは不要。  
+その代わりにexportのために`export default FormExample;`を付け加える。
+
+```
+import React, { Component } from 'react';
+import { FormGroup, FormControl, ControlLabel,HelpBlock } from 'react-bootstrap';
+
+
+class FormExample extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleChange = this.handleChange.bind(this);
+
+    this.state = {
+      value: ''
+    };
+  }
+
+  getValidationState() {
+    const length = this.state.value.length;
+    if (length > 10) return 'success';
+    else if (length > 5) return 'warning';
+    else if (length > 0) return 'error';
+    return null;
+  }
+
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
+  render() {
+    return (
+      <form>
+        <FormGroup
+          controlId="formBasicText"
+          validationState={this.getValidationState()}
+        >
+          <ControlLabel>Working example with validation</ControlLabel>
+          <FormControl
+            type="text"
+            value={this.state.value}
+            placeholder="Enter text"
+            onChange={this.handleChange}
+          />
+          <FormControl.Feedback />
+          <HelpBlock>Validation is based on string length.</HelpBlock>
+        </FormGroup>
+      </form>
+    );
+  }
+}
+
+
+
+export default FormExample;
+```
