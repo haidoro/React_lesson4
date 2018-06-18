@@ -227,3 +227,35 @@ class FormExample extends Component {
 
 export default FormExample;
 ```
+
+## デプロイ
+GitHub Pagesに公開
+[React-Bootstrap ドキュメント](https://react-bootstrap.github.io/getting-started/introduction)を参考にしてデプロイする。
+
+まず、packege.jsonに以下を追加。`username`部分にはアカウント名を`my-app`部分にはリモートリポジトリ名を入れる。  
+これが公開アドレスになります。
+```
+"homepage": "https://username.github.io/my-app",
+```
+GitHub Pagesに公開するためのプラグインを導入
+```
+yarn add gh-pages
+```
+続いてpackege.jsonに以下内容を追加
+```
+ "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+```
+デプロイの実行
+```
+ yarn run deploy
+```
+これでGitHub Pagesのアドレスに公開されています。
+尚、GitHub Pagesの手動での設定はGitHubのSettingsタブを選択して「GitHub Pages」の所にあります。  
+自動でgh-pages branchができているはずです。
+
+今回の公開アドレスは以下  
+[React Sample](https://haidoro.github.io/React_lesson4/)
