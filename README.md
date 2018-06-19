@@ -1,29 +1,40 @@
-# sample4
+# create-react-appでReactの勉強
+create-react-appを導入してReactの環境設定を行います。
+面倒な設定など必要ありませんので、気軽にReact本来の組み立てに集中することができます。  
+今回の手順はMacでおこなったものです。
+* Node.jsがインストールされている必要があります。
+* yarnがインストールされている必要があります。
 
 ## create-react-app導入
+create-react-appを以下コマンドでグローバルでインストールします。
 ```
 yarn global add create-react-app
 ```
 
 ## test作成
+以下のコマンドを実行するとHomeの中にtestフォルダが作成されてcreate-react-app環境が構築されます。
 ```
 create-react-app test
 ```
+testフォルダに移動します。
 ```
 cd test
 ```
+サーバーを稼働させます。
 ```
 yarn start
 ```
 サーバー停止はctrl+C
 
 ## SASS導入
+SASSを使いたいのでその環境を作ります。
 ```
 yarn add node-sass-chokidar
 ```
 ```
 yarn add npm-run-all
 ```
+packege.jsonのscripts部分を以下のように記述します。
 packege.json
 ```
 {
@@ -49,7 +60,7 @@ packege.json
 
 ```
 
-## 解説
+## コンポーネントの作成
 ## 独自boilerplate作成
 ### Classコンポーネントとfanctionalコンポーネント 
 Classコンポーネントとfanctionalコンポーネントの違いはstateを持てるかどうかということです。Classコンポーネントがstateを保持することができます。
@@ -82,6 +93,8 @@ class App extends Component {
 ```
 
 #### props
+
+propsで値を渡します。
 ```
 import React from 'react';
 
@@ -105,6 +118,7 @@ Hello.propTypes = {
 ```
 
 #### state
+状態を維持する方法を確認します。
 ```
 import React, { Component } from 'react';
 
@@ -223,13 +237,11 @@ class FormExample extends Component {
   }
 }
 
-
-
 export default FormExample;
 ```
 
 ## デプロイ
-GitHub Pagesに公開
+デプロイしてGitHub Pagesに公開
 [React-Bootstrap ドキュメント](https://react-bootstrap.github.io/getting-started/introduction)を参考にしてデプロイする。
 
 まず、packege.jsonに以下を追加。`username`部分にはアカウント名を`my-app`部分にはリモートリポジトリ名を入れる。  
