@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-
 import SearchForm from './SearchForm';
 import GeocodeResult from './GeocodeResult';
+import PropTypes from 'prop-types';
 
 const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
 
