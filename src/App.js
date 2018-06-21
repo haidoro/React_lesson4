@@ -3,7 +3,8 @@ import './App.css';
 import axios from 'axios';
 import SearchForm from './SearchForm';
 import GeocodeResult from './GeocodeResult';
-import PropTypes from 'prop-types';
+
+
 
 const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
 
@@ -53,11 +54,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>緯度経度検索</h1>
-        <SearchForm onSubmit={place => this.handlePlaceSubmit(place)} />
-        <GeocodeResult address={this.state.address} lat={this.state.lat} lng={this.state.lng} />
+      <div className="App">
+       <header className="App-header">
+         <h1>緯度経度検索</h1>
+         <p>希望の位置情報を調べます。</p>
+       </header>
+       <div className="result">
+         <SearchForm onSubmit={place => this.handlePlaceSubmit(place)} />
+         <GeocodeResult address={this.state.address} lat={this.state.lat} lng={this.state.lng} />
       </div>
+     </div>
     );
   }
 }
