@@ -487,3 +487,40 @@ yarn add gh-pages
 
 今回の公開アドレスは以下  
 [React Sample](https://haidoro.github.io/React_lesson4/)
+
+なぜかSASSが動かなくなったのでpackege.jsonの記述を変更
+
+```
+{
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://haidoro.github.io/React_lesson4",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "3",
+    "gh-pages": "^1.2.0",
+    "node-sass-chokidar": "^1.3.0",
+    "npm-run-all": "^4.1.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.1",
+    "react-google-maps": "^9.4.5",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
+  }
+}
+
+```
