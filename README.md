@@ -243,11 +243,11 @@ export default FormExample;
 
 経緯度検索サービスを使用するために次のプラグインを導入しておきます。
 
-axios
+axiosの導入
 ```
 yarn add axios
 ```
-react-google-maps
+react-google-mapsの導入
 ```
  yarn add react-google-maps
 ```
@@ -451,6 +451,52 @@ body{
   text-align:left;
 }
 ```
+
+## Mapの作成
+public/index.htmlの`</body>`直前に次のコードを加えます。
+本来自分のAPIコードが必要ですが、開発段階では無くてもOK
+```
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+```
+続いてMap.jsファイルをsrcフォルダ内に作成
+以下を記述
+
+```
+import React from 'react';
+import {
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+} from 'react-google-maps';
+
+const InnerMap = withGoogleMap(props =>
+  <GoogleMap
+    defaultZoom={12}
+    defaultCenter={{ lat: 35.6811673, lng: 139.7670516 }}
+  >
+
+  </GoogleMap>
+);
+
+const Map = props => (
+  <InnerMap
+  containerElement={<div style={{ height: `400px` }} />}
+  mapElement={<div style={{ height: `100%` }} />}
+  />
+);
+export default Map;
+```
+
+こちらの内容は
+[react-google-maps](https://tomchentw.github.io/react-google-maps/#withgooglemap)のwithGoogleMap部分を参考にする。
+
+App.jsでMapをimportします。
+```
+import Map from './Map';
+```
+## 検索結果の位置を表示
+
+
 
 
 

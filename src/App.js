@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import SearchForm from './SearchForm';
 import GeocodeResult from './GeocodeResult';
+import Map from './Map';
 
 
 
@@ -62,6 +63,7 @@ class App extends Component {
        <div className="result">
          <SearchForm onSubmit={place => this.handlePlaceSubmit(place)} />
          <GeocodeResult address={this.state.address} lat={this.state.lat} lng={this.state.lng} />
+         <Map lap={this.state.lat} lng={this.state.lng} />
       </div>
      </div>
     );
